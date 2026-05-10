@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>A. J. Foam & Fibre</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#050816;
+overflow-x:hidden;
+color:white;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#c8a75c;
+border-radius:20px;
+}
+
+/* HEADER */
+
+header{
+width:100%;
+padding:18px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+top:0;
+left:0;
+z-index:1000;
+background:rgba(4,8,25,0.75);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logo img{
+width:75px;
+height:75px;
+border-radius:50%;
+object-fit:cover;
+box-shadow:
+0 0 20px rgba(255,215,100,0.5),
+0 0 40px rgba(0,0,0,0.4);
+}
+
+.logo h1{
+font-size:32px;
+font-weight:700;
+background:linear-gradient(to right,#fff,#c8a75c);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+nav a{
+text-decoration:none;
+margin-left:28px;
+font-size:16px;
+color:#fff;
+font-weight:500;
+transition:0.4s;
+position:relative;
+}
+
+nav a:hover{
+color:#c8a75c;
+}
+
+nav a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-5px;
+width:0;
+height:2px;
+background:#c8a75c;
+transition:0.4s;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 7% 60px;
+background:
+linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.7)),
+url('WhatsApp Image 2026-05-06 at 6.51.59 PM.jpeg');
+background-size:cover;
+background-position:center;
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#c8a75c30,transparent 70%);
+top:-200px;
+right:-200px;
+filter:blur(20px);
+}
+
+.hero-content{
+max-width:900px;
+position:relative;
+z-index:10;
+}
+
+.hero h2{
+font-size:78px;
+line-height:1.05;
+font-weight:800;
+margin-bottom:25px;
+text-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+.hero h2 span{
+background:linear-gradient(to right,#ffffff,#c8a75c);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+font-size:20px;
+line-height:1.9;
+color:#ddd;
+margin-bottom:35px;
+}
+
+.hero button{
+padding:18px 45px;
+border:none;
+border-radius:50px;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+background:linear-gradient(to right,#c8a75c,#f6e2a6);
+color:#111;
+transition:0.4s;
+box-shadow:0 10px 35px rgba(200,167,92,0.35);
+}
+
+.hero button:hover{
+transform:translateY(-5px) scale(1.03);
+}
+
+/* SECTION */
+
+section{
+padding:110px 7%;
+position:relative;
+}
+
+.section-title{
+text-align:center;
+font-size:52px;
+font-weight:800;
+margin-bottom:70px;
+background:linear-gradient(to right,#fff,#c8a75c);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* PRODUCTS */
+
+.products{
+background:#091123;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
+}
+
+.card{
+position:relative;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:28px;
+padding:30px;
+overflow:hidden;
+transition:0.5s;
+transform-style:preserve-3d;
+backdrop-filter:blur(10px);
+box-shadow:
+0 15px 35px rgba(0,0,0,0.35);
+}
+
+.card:hover{
+transform:
+rotateY(8deg)
+translateY(-12px)
+scale(1.02);
+box-shadow:
+0 20px 50px rgba(0,0,0,0.5),
+0 0 25px rgba(200,167,92,0.25);
+}
+
+.card::before{
+content:'';
+position:absolute;
+top:-50%;
+left:-50%;
+width:220%;
+height:220%;
+background:
+linear-gradient(45deg,
+transparent,
+rgba(255,255,255,0.06),
+transparent);
+transform:rotate(25deg);
+}
+
+.card img{
+width:100%;
+height:270px;
+object-fit:contain;
+filter:
+drop-shadow(0 25px 30px rgba(0,0,0,0.45))
+contrast(1.1)
+saturate(1.08);
+transition:0.5s;
+mix-blend-mode:screen;
+}
+
+.card:hover img{
+transform:scale(1.06) rotate(-2deg);
+}
+
+.card h3{
+margin-top:22px;
+font-size:30px;
+margin-bottom:12px;
+color:#fff;
+}
+
+.card p{
+line-height:1.9;
+font-size:15px;
+color:#cfcfcf;
+}
+
+/* FEATURES */
+
+.features{
+background:#050816;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+}
+
+.feature-box{
+padding:45px 30px;
+border-radius:30px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+text-align:center;
+transition:0.5s;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+.feature-box:hover{
+transform:translateY(-12px);
+background:rgba(255,255,255,0.08);
+}
+
+.feature-box h3{
+font-size:28px;
+margin-bottom:15px;
+color:#c8a75c;
+}
+
+.feature-box p{
+line-height:1.9;
+color:#ddd;
+}
+
+/* GALLERY */
+
+.gallery{
+background:#091123;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:22px;
+}
+
+.gallery-grid img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:24px;
+transition:0.5s;
+box-shadow:
+0 15px 35px rgba(0,0,0,0.4);
+}
+
+.gallery-grid img:hover{
+transform:
+scale(1.04)
+rotate(1deg);
+}
+
+/* ABOUT */
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+background:#050816;
+}
+
+.about img{
+width:100%;
+border-radius:30px;
+box-shadow:
+0 20px 50px rgba(0,0,0,0.45);
+}
+
+.about h2{
+font-size:54px;
+margin-bottom:30px;
+}
+
+.about p{
+font-size:17px;
+line-height:2;
+color:#ddd;
+}
+
+/* CONTACT */
+
+.contact{
+background:#091123;
+}
+
+.contact-box{
+max-width:850px;
+margin:auto;
+padding:60px;
+border-radius:35px;
+background:
+linear-gradient(135deg,
+rgba(255,255,255,0.06),
+rgba(255,255,255,0.02));
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:
+0 20px 50px rgba(0,0,0,0.4);
+text-align:center;
+}
+
+.contact-box h2{
+font-size:50px;
+margin-bottom:25px;
+}
+
+.contact-box p{
+font-size:20px;
+line-height:2.2;
+color:#ddd;
+}
+
+/* FOOTER */
+
+footer{
+background:#03050d;
+padding:28px;
+text-align:center;
+font-size:15px;
+color:#999;
+border-top:1px solid rgba(255,255,255,0.06);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+.hero h2{
+font-size:52px;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+nav{
+display:none;
+}
+
+.section-title{
+font-size:40px;
+}
+
+.about h2{
+font-size:42px;
+}
+
+}
+
+@media(max-width:600px){
+
+.hero h2{
+font-size:40px;
+}
+
+.hero p{
+font-size:17px;
+}
+
+.logo h1{
+font-size:24px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<img src="logo.jpeg" alt="">
+<h1>A. J. Foam & Fibre</h1>
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#gallery">Gallery</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h2>
+Luxury Comfort For <span>Better Sleep</span>
+</h2>
+
+<p>
+Premium Pillows, Cushions, Bolsters, Mattresses & Sofa Cum Beds crafted with superior comfort, elegant finishing and long-lasting durability.
+</p>
+
+<button>Explore Collection</button>
+
+</div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="products" id="products">
+
+<h2 class="section-title">Our Premium Products</h2>
+
+<div class="product-grid">
+
+<div class="card">
+<img src="4.png">
+<h3>Premium Bolsters</h3>
+<p>
+Ultra-soft bolster collection designed for premium support, luxury comfort and stylish modern living.
+</p>
+</div>
+
+<div class="card">
+<img src="5.png">
+<h3>Night Bliss Pillows</h3>
+<p>
+Premium fibre pillows made with hygienic filling and superior softness for deep relaxing sleep.
+</p>
+</div>
+
+<div class="card">
+<img src="6.png">
+<h3>Comfort Fibre Pillows</h3>
+<p>
+Machine washable comfort pillows with long-lasting durability and luxurious softness.
+</p>
+</div>
+
+<div class="card">
+<img src="7.png">
+<h3>Double Bull Pillows</h3>
+<p>
+Elegant premium pillows designed for hotels, retailers and luxury home comfort.
+</p>
+</div>
+
+<div class="card">
+<img src="3.png">
+<h3>Royal Touch Mattress</h3>
+<p>
+Orthopaedic mattresses engineered for balanced support and comfortable sleep experience.
+</p>
+</div>
+
+<div class="card">
+<img src="2.png">
+<h3>Sleep Care Mattress</h3>
+<p>
+Premium mattress collection crafted for deep sleep, posture support and luxury comfort.
+</p>
+</div>
+
+<div class="card">
+<img src="1.png">
+<h3>Sofa Cum Bed</h3>
+<p>
+Modern sofa cum beds with elegant design, comfort seating and premium sleeping support.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features">
+
+<h2 class="section-title">Why Choose Us</h2>
+
+<div class="feature-grid">
+
+<div class="feature-box">
+<h3>Premium Quality</h3>
+<p>
+Manufactured using superior foam and fibre material with luxury finishing.
+</p>
+</div>
+
+<div class="feature-box">
+<h3>Elegant Comfort</h3>
+<p>
+Designed for soft feel, better posture support and maximum relaxation.
+</p>
+</div>
+
+<div class="feature-box">
+<h3>Durable Products</h3>
+<p>
+Long-lasting products suitable for homes, retailers and hospitality industry.
+</p>
+</div>
+
+<div class="feature-box">
+<h3>Bulk Orders</h3>
+<p>
+Wholesale supply available across India for mattresses and fibre products.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery" id="gallery">
+
+<h2 class="section-title">Luxury Collection</h2>
+
+<div class="gallery-grid">
+
+<img src="1.png">
+<img src="2.png">
+<img src="3.png">
+<img src="4.png">
+<img src="5.png">
+<img src="6.png">
+<img src="7.png">
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<div>
+
+<h2 class="section-title" style="text-align:left;">
+About Us
+</h2>
+A. J. Foam & Fibre — Comfort You Can Trust.
+<br><br>
+<p style="text-align: justify;">
+A trusted name in comfort and quality since 2012. We are proud to be one of the leading manufacturers of premium mattresses and foam products, dedicated to delivering comfort, durability, and innovation to our customers.
+</p>
+
+<p style="text-align: justify;">
+With years of expertise in the industry, we specialize in manufacturing a wide range of products including Mattresses, Pillows, Cushions, Bolsters, Sofa Cum Beds, and customized foam solutions designed to meet modern lifestyle needs.
+</p>
+
+<p style="text-align: justify;">
+Our commitment to quality, reliability, and affordable pricing has helped us build strong relationships with customers across the market.
+</p>
+
+<p style="text-align: justify;">
+Driven by innovation and excellence, we continue to expand our product range while maintaining the highest standards in craftsmanship and service.
+</p>
+
+
+</div>
+
+<div>
+<img src="3.png">
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="contact-box">
+
+<h2 class="section-title">Contact Us</h2>
+
+<p>
+📍 E-139, Phase 7, Mohali
+</p>
+
+<p>
+📞 8556085086 | 9888356720
+</p>
+
+<p>
+🛏 Bulk Orders Available Across India
+</p>
+
+<p>
+✨ Pillows • Cushions • Bolsters • Mattresses • Sofa Cum Beds
+</p>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 A. J. Foam & Fibre | Comfort • Quality • Trust
+</footer>
+
+</body>
+</html>
